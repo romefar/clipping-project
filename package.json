@@ -1,0 +1,42 @@
+{
+  "name": "clipping-project",
+  "version": "1.0.0",
+  "description": "Two simple variations of clipping.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server --open --mode development",
+    "start": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romefar/clipping-project.git"
+  },
+  "keywords": [
+    "clipping",
+    "cut",
+    "figure",
+    "clip",
+    "path"
+  ],
+  "author": "romefar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/romefar/clipping-project/issues"
+  },
+  "homepage": "https://github.com/romefar/clipping-project#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.0",
+    "@babel/plugin-proposal-class-properties": "^7.7.0",
+    "@babel/preset-env": "^7.7.1",
+    "babel-loader": "^8.0.6",
+    "html-webpack-plugin": "^3.2.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0"
+  }
+}
