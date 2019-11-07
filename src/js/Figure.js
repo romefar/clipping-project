@@ -17,10 +17,32 @@ export default class Figure {
     // количество фреймов (шагов) для отрисовки
     _steps = 0;
 
-    constructor(_steps) { 
+    // корректировка отрисовки по X(px)
+    _shiftX = 0;
+
+    // корректировка отрисовки по Y (px)
+    _shiftY = 0;
+
+    // необходима ли корректировка
+    _adjustment = false;
+
+    constructor(_steps, adj = false) {
+        this._adjustment = adj;
+        this._setAdjustment(this._adjustment);
         this._initializePoints();
         this._steps = _steps;
         this._calculateDiffPoints();
+    }
+
+    // установка корректировки
+    _setAdjustment = (adjustment) => { 
+        if(adjustment) { 
+            this._shiftX = -9;
+            this._shiftY = -2;
+        } else { 
+            this._shiftX = 0;
+            this._shiftY = 0;
+        }
     }
 
     // расчёт приращений
@@ -40,7 +62,7 @@ export default class Figure {
     getPointsCount = () => this._points;
 
     // инициализация координат и расчет приращений
-    _initializePoints = () => { 
+    _initializePoints = () => {
         this._initPoints.push(
             new PointF(100, 25),  // a
             new PointF(15, 100),  // b
@@ -54,18 +76,29 @@ export default class Figure {
             new PointF(1735, 870),  // a
             new PointF(1735, 870),  // bc
             new PointF(1835, 950), // ed
-            new PointF(1835, 950), 
+            new PointF(1835, 950),
             new PointF(1870, 870),
             new PointF(1735, 870)
         );
-        this._calculateDiffPoints();
+
+        // корректировки
+        if (this._adjustment) {
+            for (let i = 0; i < this._points; i++) {
+                this._initPoints[i].x += this._shiftX;
+                this._initPoints[i].y += this._shiftY;
+
+                this._endPoints[i].x += this._shiftX;
+                this._endPoints[i].y += this._shiftY;
+            }
+        }
     }
 
     // сброс координат до начальных значений и перерасчет приращений
-    resetPoints = () => { 
+    resetPoints = () => {
         this._initPoints = [];
         this._endPoints = [];
-        this.initializePoints();
+        this._initializePoints();
         this._calculateDiffPoints();
+        console.log("CALLED");
     }
 }

@@ -1,8 +1,71 @@
-body { 
+#root { 
+    overflow: hidden;
     padding: 0;
     margin: 0;
 }
 
 * { 
     box-sizing: border-box;
+}
+#canvas { 
+     z-index: 2;
+}
+
+.outher_poly { 
+    background: goldenrod;
+    width: 750px;
+    height: 500px;
+    z-index: -1;
+}
+
+.inner_poly { 
+    background: lightseagreen;
+    width: 500px;
+    height: 333px;
+    z-index: 5;
+    overflow: hidden;
+}
+
+.set-z-index { 
+    z-index: 3;
+}
+
+.inner_poly-flex {
+    display: flex;
+    justify-content: center;
+}
+
+.inner_poly_canvas-second-mode { 
+    align-self: center;
+    /* position: fixed; */
+    /* left: -142%;
+    top: -94%; */
+    transform: rotate(-25deg);
+}
+
+.layout { 
+    transform: rotate(25deg);
+    position: absolute;
+    top: 0; 
+    left: 0; 
+    bottom: 0;
+    right: 0;
+    margin: auto;
+}
+
+.controllers-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 100;
+    padding: 15px 30px;
+}
+
+.controllers-container__inner_clip_button,
+.controllers-container__outher_clip_button { 
+    font-size: 18px;
+    padding: 10px 5px;
+    margin: 5px 0 5px 20px;
 }
