@@ -1,28 +1,9 @@
 import "../styles/styles.css";
+import Draw from './Draw';
 
-() => { 
-    console.log("sadasdasd");
-};
-
-
-() => { 
-    console.log("99999999");
-};
-
-() => { 
-    console.log("22");
-};
+let draw = new Draw(document.getElementById('canvas'));
+draw.startDrawing();
 
 
-class Srd { 
-    start = () => { 
-        console.log("242424");
-    };
-}
-
-
-class SARAWE { 
-  
-}
 
 
